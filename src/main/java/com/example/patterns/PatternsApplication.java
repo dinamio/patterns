@@ -1,5 +1,7 @@
 package com.example.patterns;
 
+import com.example.patterns.decorator.DecoratorConfig;
+import com.example.patterns.decorator.Instrument;
 import com.example.patterns.observer.Bid;
 import com.example.patterns.observer.Game;
 import com.example.patterns.observer.ObserverConfig;
@@ -14,7 +16,14 @@ public class PatternsApplication {
 
 	public static void main(String[] args) {
 		//getStrategyLogic();
-		getObserverLogic();
+		//getObserverLogic();
+		getDecoratorLogic();
+	}
+
+	private static void getDecoratorLogic() {
+		ApplicationContext context = new AnnotationConfigApplicationContext(DecoratorConfig.class);
+		Instrument instrument = context.getBean(Instrument.class);
+		instrument.play();
 	}
 
 	private static void getObserverLogic() {
