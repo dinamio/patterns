@@ -1,5 +1,8 @@
 package com.example.patterns;
 
+import com.example.patterns.abstractfactory.AbstractFactoryConfig;
+import com.example.patterns.abstractfactory.OsetinPie;
+import com.example.patterns.abstractfactory.OsetinPieFactory;
 import com.example.patterns.decorator.DecoratorConfig;
 import com.example.patterns.decorator.Instrument;
 import com.example.patterns.fabricmethod.ChampionshipLeague;
@@ -19,42 +22,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class PatternsApplication {
 
 	public static void main(String[] args) {
-		//getStrategyLogic();
-		//getObserverLogic();
-		//getDecoratorLogic();
-		getFabricMethodLogic();
+		ApplicationContext context = new AnnotationConfigApplicationContext(PatternConfig.class);
+		Pattern pattern = context.getBean(Pattern.class);
+		pattern.run();
 	}
 
-	private static void getFabricMethodLogic() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(FabricMethodConfig.class);
-		ChampionshipLeague firstLeague = (ChampionshipLeague) context.getBean("firstLeague");
-		firstLeague.playGame();
-		ChampionshipLeague secondLeague = (ChampionshipLeague) context.getBean("secondLeague");
-		secondLeague.playGame();
-	}
 
-	private static void getDecoratorLogic() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(DecoratorConfig.class);
-		Instrument instrument = context.getBean(Instrument.class);
-		instrument.play();
-	}
-
-	private static void getObserverLogic() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(ObserverConfig.class);
-		Game championsLeague = context.getBean(Game.class);
-		Bid bid = context.getBean(Bid.class);
-		championsLeague.addObserver(bid);
-		championsLeague.scoreFirst();
-		System.out.println(bid);
-		championsLeague.scoreSecond();
-		System.out.println(bid);
-	}
-
-	private static void getStrategyLogic() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(StrategyConfig.class);
-		MyList list = context.getBean(MyList.class);
-		System.out.println(list);
-		list.performSort();
-		System.out.println(list);
-	}
 }
