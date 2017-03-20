@@ -2,6 +2,10 @@ package com.example.patterns;
 
 import com.example.patterns.decorator.DecoratorConfig;
 import com.example.patterns.decorator.Instrument;
+import com.example.patterns.fabricmethod.ChampionshipLeague;
+import com.example.patterns.fabricmethod.FabricMethodConfig;
+import com.example.patterns.fabricmethod.FirstLeague;
+import com.example.patterns.fabricmethod.SecondLeague;
 import com.example.patterns.observer.Bid;
 import com.example.patterns.observer.Game;
 import com.example.patterns.observer.ObserverConfig;
@@ -15,9 +19,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class PatternsApplication {
 
 	public static void main(String[] args) {
-		getStrategyLogic();
+		//getStrategyLogic();
 		//getObserverLogic();
 		//getDecoratorLogic();
+		getFabricMethodLogic();
+	}
+
+	private static void getFabricMethodLogic() {
+		ApplicationContext context = new AnnotationConfigApplicationContext(FabricMethodConfig.class);
+		ChampionshipLeague firstLeague = (ChampionshipLeague) context.getBean("firstLeague");
+		firstLeague.playGame();
+		ChampionshipLeague secondLeague = (ChampionshipLeague) context.getBean("secondLeague");
+		secondLeague.playGame();
 	}
 
 	private static void getDecoratorLogic() {

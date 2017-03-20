@@ -2,6 +2,7 @@ package com.example.patterns.observer;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Observable;
@@ -13,6 +14,7 @@ import java.util.Observer;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Game extends Observable {
 
     String firstTeam;
