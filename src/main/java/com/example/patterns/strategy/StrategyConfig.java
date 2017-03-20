@@ -18,7 +18,7 @@ public class StrategyConfig {
 
     @Bean
     public MyList list() {
-        return new MyList(generateRandomArray(LIST_SIZE),LIST_SIZE,new CollectionSorting());
+        return new MyList(generateRandomArray(LIST_SIZE),LIST_SIZE,new QuickSorting());
     }
 
     private Integer[] generateRandomArray(Integer listSize) {

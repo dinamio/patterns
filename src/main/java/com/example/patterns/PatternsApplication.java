@@ -15,9 +15,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class PatternsApplication {
 
 	public static void main(String[] args) {
-		//getStrategyLogic();
+		getStrategyLogic();
 		//getObserverLogic();
-		getDecoratorLogic();
+		//getDecoratorLogic();
 	}
 
 	private static void getDecoratorLogic() {

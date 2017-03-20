@@ -7,7 +7,8 @@ import java.util.Arrays;
  */
 public class CollectionSorting implements SortingStrategy {
     @Override
-    public void sort(Integer[] array, Integer size) {
+    public Integer[] sort(Integer[] array, Integer size) {
         Arrays.sort(array);
+        return array;
     }
 }

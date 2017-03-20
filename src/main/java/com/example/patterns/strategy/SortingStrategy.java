@@ -5,5 +5,5 @@ package com.example.patterns.strategy;
  */
 public interface SortingStrategy {
 
-    void sort(Integer[] array, Integer size);
+    Integer[] sort(Integer[] array, Integer size);
 }

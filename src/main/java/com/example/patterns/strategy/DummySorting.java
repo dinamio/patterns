@@ -5,7 +5,8 @@ package com.example.patterns.strategy;
  */
 public class DummySorting implements SortingStrategy {
     @Override
-    public void sort(Integer[] array, Integer size) {
+    public Integer[] sort(Integer[] array, Integer size) {
         System.out.println("I'm not sorting at all");
+        return null;
     }
 }

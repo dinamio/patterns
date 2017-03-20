@@ -20,7 +20,7 @@ public class MyList {
     private SortingStrategy sortingStrategy;
 
     public void performSort() {
-        sortingStrategy.sort(array,size);
+        array = sortingStrategy.sort(array,size);
     }
 
 
